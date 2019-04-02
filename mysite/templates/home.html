@@ -5,15 +5,16 @@
 {% block content %}
 <h1>QuickReg</h1>
 {% if user.is_authenticated %}
-  Hi {{ user.username }}!
-  Your user_type is: 
+  <p>Hi {{ user.username }}! Your user_type is:
   {% if user.user_type == 0 %}
   student.
+  Your advising status is: {{ adv_status }}
   {% elif user.user_type == 1 %}
   teacher.
   {% else %}
   Crystal.
   {% endif %}
+  </p>
 {% if user.user_type == 0 %}
   <a href= {% url 'submit_advising' %}>submit advising form</a> 
   <button>request appointment</button>
