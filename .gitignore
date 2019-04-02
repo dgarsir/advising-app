@@ -1,3 +1,5 @@
+# these lines should keep things from breaking because of the database/migration stuff...
+
 mysite/advising/migrations
 mysite/advising/__pycache__
 mysite/mysite/__pycache__
