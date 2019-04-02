@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     #local
 
-    'users.apps.UsersConfig'
+    'users.apps.UsersConfig',
+    'advising.apps.AdvisingConfig'
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

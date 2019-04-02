@@ -15,7 +15,7 @@
   Crystal.
   {% endif %}
 {% if user.user_type == 0 %}
-  <button>submit advising form</button> 
+  <a href= {% url 'submit_advising' %}>submit advising form</a> 
   <button>request appointment</button>
 {% else %}
   <button>awaiting advisement<button>
