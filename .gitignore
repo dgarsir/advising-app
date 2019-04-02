@@ -1,5 +1,5 @@
-mysite/advising/migrations
-mysite/advising/__pycache__
-mysite/mysite/__pycache__
-mysite/users/__pycache__
-mysite/users/migrations
+mysite/advising/migrations/*
+mysite/advising/__pycache__/*
+mysite/mysite/__pycache__/*
+mysite/users/__pycache__/*
+mysite/users/migrations/*
