@@ -16,7 +16,11 @@
   {% endif %}
   </p>
 {% if user.user_type == 0 %}
+  {% if adv_status == 0 %}
   <a href= {% url 'submit_advising' %}>submit advising form</a> 
+  {% else %}
+  <a href = {% url 'view_advising' %}>view advising form</a>
+  {% endif %}
   <button>request appointment</button>
 {% else %}
   <button>awaiting advisement<button>

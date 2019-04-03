@@ -17,6 +17,6 @@ class Advising(models.Model):
     currently_enrolled = models.TextField()
     completed_courses = models.TextField()
     date_submitted = models.DateTimeField(default=timezone.now)
-    author = models.CharField(max_length=100)
+    author = models.CharField(max_length=100, unique=True)
     #should this model have a status? i.e. submitted, pending approval, approved?
     status = models.IntegerField(default = 0)
