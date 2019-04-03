@@ -1,5 +1,3 @@
-mysite/advising/migrations/*
-mysite/advising/__pycache__/*
-mysite/mysite/__pycache__/*
-mysite/users/__pycache__/*
-mysite/users/migrations/*
+**/migrations
+**/__pycache__
+# these lines should keep things from breaking because of the database/migration stuff...
