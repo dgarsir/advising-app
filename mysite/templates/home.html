@@ -5,31 +5,57 @@
 {% block content %}
 <h1>QuickReg</h1>
 {% if user.is_authenticated %}
-  <p>Hi {{ user.username }}! Your user_type is:
+
+  <p>Hi {{ user.username }}!
+
   {% if user.user_type == 0 %}
-  student.
+
   Your advising status is: {{ adv_status }}
+
   {% elif user.user_type == 1 %}
-  teacher.
-  {% else %}
-  Crystal.
+
+  Awaiting Advisement:
+  
   {% endif %}
   </p>
+
+
 {% if user.user_type == 0 %}
   {% if adv_status == 0 %}
-  <a href= {% url 'submit_advising' %}>submit advising form</a> 
+  <a href= {% url 'submit_advising' %} decoration='none'>
+    <button>Submit Advising Form</button>
+  </a> 
   {% else %}
-  <a href = {% url 'view_advising' %}>view advising form</a>
+  <a href = {% url 'view_advising' %} decoration='none'>
+    <button>View Advising Form</button>
+  </a>
   {% endif %}
-  <button>request appointment</button>
+  <a>
+    <button>Request Appointment</button>
+  </a>
 {% else %}
-  <button>awaiting advisement<button>
-  <button>my appointments</button>
+<!-- faculty form viewing happens here, bb.  Need to link this up to a view.-->
+  <form method="GET" id="aa_form">
+    <select id='form_select' name='selected_form'>
+      {% for element in to_be_advised %}
+      <option value={{ element.id }}>{{ element.author }}</option>
+      {% endfor %}
+    </select>
+    <button type="Submit">View Advising Form<button>
+  </form>
 {% endif %}
-  <p><a href="{% url 'logout' %}">logout</a></p>
+  <p>
+    <a href="{% url 'logout' %}">
+    <button>Log Out</button>
+    </a>
+  </p>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">login</a>
-  <a href="{% url 'signup' %}">sign up</a>
+  <a href="{% url 'login' %}">
+    <button>Login</button>
+    </a>
+  <a href="{% url 'signup' %}">
+    <button>Sign Up</button>
+  </a>
 {% endif %}
 {% endblock %}

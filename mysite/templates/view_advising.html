@@ -14,15 +14,20 @@
     <div style='center-div'>
         <h1>Current Submission</h1>
         <ul>
-            <li>{{ semester }}</li>
-            <li>{{ major }}</li>
-            <li>{{ QPA }}</li>
-            <li>{{ GPA }}</li>
-            <li>{{ currently_enrolled }}</li>
-            <li>{{ date_submitted }}</li>
+            <li>Semester: {{ semester }}</li>
+            <li>Major: {{ major }}</li>
+            <li>QPA: {{ QPA }}</li>
+            <li>GPA: {{ GPA }}</li>
+            <li>Currently Enrolled: {{ currently_enrolled }}</li>
+            <li>Completed Courses: {{ completed_courses }}</li>
+            <li>Total Credits: {{ total_credits }}</li>
+            <li>Date Submitted: {{ date_submitted }}</li>
         </ul>
     </div>
-    <button>Delete</button>
+    <form method="POST">
+    {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
     <a href={% url 'home' %}>Back</a>
     {% endblock %}
   </main>

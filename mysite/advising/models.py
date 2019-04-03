@@ -9,14 +9,19 @@ majors = (
     ('Computer Engineering', 'CE')
 )
 
+semesters = (
+    ('Fall 2019', 'Fall 2019'),
+    ('Summer 2019', 'Summer 2019')
+)
+
 class Advising(models.Model):
-    semester = models.CharField(max_length = 100)
-    major = models.CharField(max_length = 100,choices=majors)
-    QPA = models.CharField(max_length=100)
-    GPA = models.CharField(max_length=100)
-    currently_enrolled = models.TextField()
-    completed_courses = models.TextField()
-    date_submitted = models.DateTimeField(default=timezone.now)
-    author = models.CharField(max_length=100, unique=True)
-    #should this model have a status? i.e. submitted, pending approval, approved?
-    status = models.IntegerField(default = 0)
+    semester = models.CharField("Semester", max_length = 100,choices=semesters)
+    major = models.CharField("Major", max_length = 100,choices=majors)
+    QPA = models.CharField("QPA", max_length=100)
+    GPA = models.CharField("GPA", max_length=100)
+    currently_enrolled = models.TextField("Currently Enrolled")
+    completed_courses = models.TextField("Completed Courses")
+    total_credits = models.PositiveIntegerField("Total Credits", default = 0)
+    date_submitted = models.DateTimeField("Date Submitted", default=timezone.now)
+    author = models.CharField("Author EMPLID", max_length=100, unique=True)
+    status = models.IntegerField("Status", default = 0)
