@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 
 from advising.models import Advising
@@ -29,6 +29,12 @@ def Home(request):
         else:
 
             to_be_advised = Advising.objects.filter(total_credits__lt=45).filter(status = 1)
+            
+            if request.method=="POST":
+                request.session['selected_id'] = request.POST.get('selected_form')
+                #for some reason redirect works and render doesn't?
+                #idk don't change it
+                return redirect('view_advising_faculty')
 
             return render(request, 'home.html', {
                 'to_be_advised' : to_be_advised

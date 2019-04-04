@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'advising.apps.AdvisingConfig',
     'Appointment_Days.apps.AppointmentDaysConfig',
+    'courses.apps.CoursesConfig',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

@@ -35,19 +35,25 @@
   </a>
 {% else %}
 <!-- faculty form viewing happens here, bb.  It is broken tho-->
-  <form method="GET" id="aa_form">
+  <form method="POST" id="aa_form">{% csrf_token %}
     <select id='form_select' name='selected_form'>
+      <option value="" selected disabled hidden>-----</option>
       {% for element in to_be_advised %}
       <option value={{ element.id }}>{{ element.author }}</option>
       {% endfor %}
     </select>
-    <button type="Submit">View Advising Form<button>
+      <button type="Submit">View Advising Form<button>
   </form>
   <a href={% url 'add_appointments' %}>
     <button>Add Appointment</button>
   </a>
-  <a href={% url 'delete_appointments' %}>
+  <a>
     <button>Delete Appointment</button>
+  </a>
+{% endif %}
+{% if user.user_type == 2 %}
+  <a href={% url 'courses_add' %}>
+    <button>Add Course</button>
   </a>
 {% endif %}
   <p>

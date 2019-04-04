@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />  
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}QuickReg{% endblock %}</title>
+</head>
+<body>
+  <main>
+    {% block content %}
+    <div style='center-div'>
+        <h1>Viewing Submission</h1>
+        <ul>
+            <li>Student Name: {{ f_name }} {{ l_name }}</li>
+            <li>Semester: {{ semester }}</li>
+            <li>Major: {{ major }}</li>
+            <li>QPA: {{ QPA }}</li>
+            <li>GPA: {{ GPA }}</li>
+            <li>Currently Enrolled: {{ currently_enrolled }}</li>
+            <li>Completed Courses: {{ completed_courses }}</li>
+            <li>Total Credits: {{ total_credits }}</li>
+            <li>Date Submitted: {{ date_submitted }}</li>
+        </ul>
+    </div>
+    <form method="POST">
+    {% csrf_token %}
+        <button type="submit">Approve</button>
+    </form>
+    <form method="GET">
+        <button type="submit">Deny</button>
+    <a href={% url 'home' %}>Back</a>
+    {% endblock %}
+  </main>
+</body>
+</html>

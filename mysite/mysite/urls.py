@@ -23,8 +23,9 @@ urlpatterns = [
     path('', views.Home, name='home'),
     path('admin/', admin.site.urls),
     path('advising/', include('advising.urls')),
-    path('appointments', include('Appointment_Days.urls')),
+    path('appointments/', include('Appointment_Days.urls')),
+    path('courses/', include('courses.urls')),
     path('', include('users.urls')),
     path('', include('django.contrib.auth.urls')),
-    path('', include('users.urls'))
+    path('', include('users.urls')),
 ]
