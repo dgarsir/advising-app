@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     #local
 
     'users.apps.UsersConfig',
-    'advising.apps.AdvisingConfig'
+    'advising.apps.AdvisingConfig',
+    'Appointment_Days.apps.AppointmentDaysConfig',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'

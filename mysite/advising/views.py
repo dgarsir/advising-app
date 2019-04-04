@@ -21,7 +21,7 @@ def submit_advising(request):
     return render(request, 'submit_advising.html', {'form': form})
 
 def view_advising(request):
-    print(request.POST)
+    #print(request.POST)
     a_form = list(Advising.objects.filter(author = request.user.EMPLID))[0]
     if request.method == "POST":
         Advising.objects.filter(author = request.user.EMPLID).delete()
@@ -37,7 +37,7 @@ def view_advising(request):
         'date_submitted' : a_form.date_submitted
     })
     
-# def view_advising_f(request):
+
 
 
 

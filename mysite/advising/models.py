@@ -14,6 +14,11 @@ semesters = (
     ('Summer 2019', 'Summer 2019')
 )
 
+terms = (
+    ('S', 'Summer 2019'),
+    ('F', 'Fall 2019')
+)
+
 class Advising(models.Model):
     semester = models.CharField("Semester", max_length = 100,choices=semesters)
     major = models.CharField("Major", max_length = 100,choices=majors)

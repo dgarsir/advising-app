@@ -34,7 +34,7 @@
     <button>Request Appointment</button>
   </a>
 {% else %}
-<!-- faculty form viewing happens here, bb.  Need to link this up to a view.-->
+<!-- faculty form viewing happens here, bb.  It is broken tho-->
   <form method="GET" id="aa_form">
     <select id='form_select' name='selected_form'>
       {% for element in to_be_advised %}
@@ -43,17 +43,23 @@
     </select>
     <button type="Submit">View Advising Form<button>
   </form>
+  <a href={% url 'add_appointments' %}>
+    <button>Add Appointment</button>
+  </a>
+  <a href={% url 'delete_appointments' %}>
+    <button>Delete Appointment</button>
+  </a>
 {% endif %}
   <p>
     <a href="{% url 'logout' %}">
-    <button>Log Out</button>
+      <button>Log Out</button>
     </a>
   </p>
 {% else %}
   <p>You are not logged in</p>
   <a href="{% url 'login' %}">
     <button>Login</button>
-    </a>
+  </a>
   <a href="{% url 'signup' %}">
     <button>Sign Up</button>
   </a>

@@ -1,0 +1,7 @@
+
+  <h2>Appointments</h2>
+    {% for x in items %}
+     <p>{% x.Date:'%M %D %Y' %}</p>
+    <p>{%x.Start_Time:'%H:%M'%}-{%x.End_Time:'%H:%M'%}</p>
+  <!--hr /-->
+{% endfor %}
