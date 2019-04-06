@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from django.utils import timezone
 
-from .forms import SubmitAdvisingForm
+from .forms import SubmitAdvisingForm, ApproveDenyForm
 from .models import Advising
 from users.models import CustomUser
 
@@ -14,7 +14,12 @@ def submit_advising(request):
             a_form = form.save(commit=False)
             a_form.author = request.user.EMPLID
             a_form.date_submitted = timezone.now()
-            a_form.status = 1
+            if (a_form.total_credits < 45):
+                a_form.status = 2
+            else:
+                a_form.status = 1
+            request.user.was_denied = False
+            request.user.save()
             a_form.save()
             return redirect('home')
     else:
@@ -23,7 +28,7 @@ def submit_advising(request):
 
 def view_advising_faculty(request):
 
-    a_form = list(Advising.objects.filter(pk = request.session['selected_id']))[0]
+    a_form = Advising.objects.get(pk = request.session['selected_id'])
     f_name = CustomUser.objects.get(EMPLID = a_form.author).first_name
     l_name = CustomUser.objects.get(EMPLID = a_form.author).last_name
 
@@ -37,7 +42,7 @@ def view_advising_faculty(request):
     'currently_enrolled' : a_form.currently_enrolled,
     'completed_courses' : a_form.completed_courses,
     'total_credits' : a_form.total_credits,
-    'date_submitted' : a_form.date_submitted
+    'date_submitted' : a_form.date_submitted,
     })
 
 
@@ -58,3 +63,34 @@ def view_advising(request):
         'date_submitted' : a_form.date_submitted
     })
     
+def confirm_approve(request):
+    a_form = Advising.objects.get(pk = request.session['selected_id'])
+    if (request.user.user_type == 1):
+        if request.method == "POST":
+            a_form.status = 2
+            a_form.save()
+            request.session['selected_id'] = ''
+            return redirect('home')
+    else:
+        if request.method == "POST":
+            a_form.status = 3
+            a_form.save()
+            request.session['selected_id'] = ''
+            return redirect('home')
+
+    return render(request, 'confirm_approve.html', {
+        'a_form' : a_form
+    })
+
+def confirm_deny(request):
+    a_form = Advising.objects.get(pk = request.session['selected_id'])
+    student = CustomUser.objects.get(EMPLID = a_form.author)
+    if request.method == "POST":
+        student.was_denied = True
+        student.save()
+        a_form.delete()
+        request.session['selected_id'] = ''
+        return redirect('home')
+    return render(request, 'confirm_deny.html', {
+        'a_form' : a_form
+    })

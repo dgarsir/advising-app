@@ -1,6 +1,11 @@
 from django import forms
 from .models import Advising
 
+decisions = (
+    (0, 'Approve'),
+    (1, 'Deny'),
+)
+
 class SubmitAdvisingForm(forms.ModelForm):
     class Meta:
         model = Advising
@@ -13,3 +18,8 @@ class SubmitAdvisingForm(forms.ModelForm):
             'completed_courses',
             'total_credits'
         )
+
+class ApproveDenyForm(forms.Form):
+    decision = forms.ChoiceField(choices = decisions)
+
+

@@ -10,11 +10,13 @@
 
   {% if user.user_type == 0 %}
 
-  Your advising status is: {{ adv_status }}
+  Your advising status is: {{ adv_message }}
+    {% if user.was_denied == True %}
+    Your advising form was rejected, please resubmit!
+    {% endif %}
+    {% elif user.user_type == 1 %}
 
-  {% elif user.user_type == 1 %}
-
-  Awaiting Advisement:
+    Awaiting Advisement:
   
   {% endif %}
   </p>
@@ -33,7 +35,6 @@
     <button>Request Appointment</button>
   </a>
 {% else %}
-<!-- faculty form viewing happens here, bb.  It is broken tho-->
   <form method="POST" id="aa_form">{% csrf_token %}
     <select id='form_select' name='selected_form'>
       <option value="" selected disabled hidden>-----</option>

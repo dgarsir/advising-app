@@ -25,13 +25,12 @@
             <li>Date Submitted: {{ date_submitted }}</li>
         </ul>
     </div>
-    <form method="POST">
-    {% csrf_token %}
-        <button type="submit">Approve</button>
-    </form>
-    <form method="GET">
-        <button type="submit">Deny</button>
-    <a href={% url 'home' %}>Back</a>
+    <a href={% url 'confirm_approve' %}>
+      <button>Approve</button>
+    </a>
+    <a href={% url 'confirm_deny' %}>
+      <button>Deny</button>
+    </a>
     {% endblock %}
   </main>
 </body>

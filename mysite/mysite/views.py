@@ -21,14 +21,28 @@ def Home(request):
                 adv_form = list(adv_form)[0]
                 adv_status = adv_form.status
 
+            adv_message = ''
+
+            if adv_status == 0:
+                adv_message = "Unadvised"
+            if adv_status == 1:
+                adv_message = "Advisement pending."
+            if adv_status == 2:
+                adv_message = "Advisement pending final approval."
+            if adv_status == 3:
+                adv_message = "Advised.  Thank you for using QuickReg."
             return render(request, 'home.html', {
+                'adv_message' : adv_message,
                 'adv_status' : adv_status,
                 'adv_form' : adv_form
             })
         
-        else:
+        else:   
 
-            to_be_advised = Advising.objects.filter(total_credits__lt=45).filter(status = 1)
+            if (user_type == 1):
+                to_be_advised = Advising.objects.filter(total_credits__gte=45).filter(status = 1)
+            else:
+                to_be_advised = Advising.objects.filter(status = 2)
             
             if request.method=="POST":
                 request.session['selected_id'] = request.POST.get('selected_form')
