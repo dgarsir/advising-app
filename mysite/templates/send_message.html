@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Send a Message</h2>
+      <a href = {% url 'home' %} decoration='none'>
+    	<button>Back</button>
+  	  </a>
+    <form method="POST" class="message-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save">Send</button>
+    </form>
+{% endblock %}

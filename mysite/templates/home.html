@@ -56,6 +56,12 @@
     <button>Add Course</button>
   </a>
 {% endif %}
+  <a href = {% url 'send_message' %} decoration='none'>
+    <button>Send Message</button>
+  </a>
+  <a href = {% url 'view_inbox' %} decoration='none'>
+    <button>inbox</button>
+  </a>
   <p>
     <a href="{% url 'logout' %}">
       <button>Log Out</button>

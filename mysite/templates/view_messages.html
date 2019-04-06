@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+{% block content %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />  
+
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>{% block title %}Inbox{% endblock %}</title>
+</head>
+<body>
+    <h1>Inbox</h1>
+    <a href = {% url 'send_message' %} decoration = none>
+        <button>Send Message</button>
+    </a>
+    <a href = {% url 'home' %} decoration = none>
+        <button>Back</button>
+    </a>
+    {% for message in messages %}
+        {% if message.receiver == request.user.EMPLID %}
+            <ul>
+                <li>Time Received: {{ message.timestamp }}</li>
+                <li>Sender: {{ message.sender }}</li>
+                <li>Subject: {{ message.subject }}</li>
+                <li>Content: {{ message.content }}</li>
+            </ul>
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
+    <a href = {% url 'delete_message' %} decoration = none>
+        <button>Delete</button>
+    </a>
+</body>
+</html>

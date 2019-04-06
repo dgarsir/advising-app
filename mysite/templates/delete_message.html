@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Delete Messages</h1>
+  <a href = {% url 'view_inbox' %} decoration='none'>
+    <button>Back</button>
+  </a>
+<form method="POST" id="to-delete">{% csrf_token %}
+	<select id='to-delete' name='to-delete'>
+    	<option value="" selected disabled hidden>-----</option>
+      	{% for message in inbox %}
+      		<option value={{ message.id }}>{{ message.subject }}</option>
+      	{% endfor %}
+    </select>
+   	<button type="Submit">Delete</button>
+</form>
+{% endblock %}
