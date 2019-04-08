@@ -3,43 +3,38 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
+
 <h1>QuickReg</h1>
+
 {% if user.is_authenticated %}
 
-  <p>Hi {{ user.username }}!
+<p>Hi {{ user.username }}!
 
-  {% if user.user_type == 0 %}
-
+{% if user.user_type == 0 %}
+<div class='advising-status'>
   Your advising status is: {{ adv_message }}
-    {% if user.was_denied == True %}
+  {% if user.was_denied == True %}
     Your advising form was rejected, please resubmit!
-    {% endif %}
-    {% elif user.user_type == 1 %}
-
-    Awaiting Advisement:
-  
   {% endif %}
-  </p>
+</div>
+{% elif user.user_type == 1 %}
+  Awaiting Advisement:
+{% endif %}
+</p>
   
 {% if user.user_type == 0 %}
   {% if adv_status == 0 %}
-  <a href= {% url 'submit_advising' %} decoration='none'>
-    <button>Submit Advising Form</button>
-  </a> 
+  <div class='navigation' id='advising'>
+    <a href= {% url 'submit_advising' %} class='btn btn-primary' role='button'>Submit Advising Form</a> 
   {% else %}
-  <a href = {% url 'view_advising' %} decoration='none'>
-    <button>View Advising Form</button>
-  </a>
+    <a href = {% url 'view_advising' %} class='btn btn-primary' role='button'>View Advising Form</a>
+  </div>
   {% endif %}
-  <a href={% url 'request_appointment' %}>
-    <button>Request Appointment</button>
-  </a>
-  <a href={% url 'view_appointments' %}>
-    <button>My Appointments</button>
-  </a>
-    <a href={% url 'view_courses' %}>
-    <button>View Courses</button>
-  </a>
+  <div class='navigation' id='appointments'>
+    <a href={% url 'request_appointment' %} class='btn btn-primary' role='button'>Request Appointment</a>
+    <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
+  </div>
+  <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
 {% else %}
   <form method="POST" id="aa_form">{% csrf_token %}
     <select id='form_select' name='selected_form'>
@@ -48,47 +43,31 @@
       <option value={{ element.id }}>{{ element.author }}</option>
       {% endfor %}
     </select>
-      <button type="Submit">View Advising Form<button>
+      <button type='button Submit' class='btn btn-primary'>View Advising Form<button>
   </form>
 {% endif %}
 {% if user.user_type == 2 %}
-  <a href={% url 'courses_add' %}>
-    <button>Add Course</button>
-  </a>
-  <a href={% url 'del_course' %}>
-    <button>Delete Course</button>
-  </a> 
-  <a href={% url 'view_courses' %}>
-    <button>View Courses</button>
-  </a>
-  <a href={% url 'add_appointments' %}>
-    <button>Add Appointment</button>
-  </a>
-  <a href={% url 'delete_appointment'%}>
-    <button>Delete Appointment</button>
-  </a>
-  <a href={% url 'view_appointments' %}>
-    <button>My Appointments</button>
-  </a>
+<div class='navigation' id='courses'>
+  <a href={% url 'courses_add' %} class='btn btn-primary' role='button'>Add Course</a>
+  <a href={% url 'del_course' %} class='btn btn-primary' role='button'>Delete Course</a>
+  <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
+</div>
+<div class='navigation' id='appointments-c'>
+  <a href={% url 'add_appointments' %} class='btn btn-primary' role='button'>Add Appointment</a>
+  <a href={% url 'delete_appointment'%} class='btn btn-primary' role='button'>Delete Appointment</a>
+  <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
+</div>
 {% endif %}
-  <a href = {% url 'send_message' %} decoration='none'>
-    <button>Send Message</button>
-  </a>
-  <a href = {% url 'view_inbox' %} decoration='none'>
-    <button>inbox</button>
-  </a>
-  <p>
-    <a href="{% url 'logout' %}">
-      <button>Log Out</button>
-    </a>
-  </p>
+<div class='navigation' id='messaging'>
+  <a href = {% url 'send_message' %} class='btn btn-primary' role='button'>Send Message</a>
+  <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox</a>
+</div>
+<div class='navigation' id='authorization'>
+  <a href="{% url 'logout' %}" class='btn btn-primary' role='button'>Log Out</a>
 {% else %}
   <p>You are not logged in</p>
-  <a href="{% url 'login' %}">
-    <button>Login</button>
-  </a>
-  <a href="{% url 'signup' %}">
-    <button>Sign Up</button>
-  </a>
+  <a href="{% url 'login' %}" class='btn btn-primary' role='button'>Login</a>
+  <a href="{% url 'signup' %}" class='btn btn-primary' role='button'>Sign Up</a>
+</div>
 {% endif %}
 {% endblock %}
