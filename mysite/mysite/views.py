@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views import generic
 
 from advising.models import Advising
+from message.models import Message
 
 def Home(request):
 
@@ -10,6 +11,7 @@ def Home(request):
     if authenticated:
 
         user_type = request.user.user_type
+        num_messages = len(Message.objects.filter(receiver = request.user.EMPLID))
 
         if (user_type == 0):
 
@@ -34,7 +36,8 @@ def Home(request):
             return render(request, 'home.html', {
                 'adv_message' : adv_message,
                 'adv_status' : adv_status,
-                'adv_form' : adv_form
+                'adv_form' : adv_form,
+                'num_messages' : num_messages,
             })
         
         else:   
@@ -51,7 +54,8 @@ def Home(request):
                 return redirect('view_advising_faculty')
 
             return render(request, 'home.html', {
-                'to_be_advised' : to_be_advised
+                'to_be_advised' : to_be_advised,
+                'num_messages' : num_messages,
             })
 
     return render(request, 'home.html')

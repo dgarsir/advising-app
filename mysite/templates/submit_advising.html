@@ -4,6 +4,7 @@
     <h2>Submit Advising</h2>
     <form method="POST" class="advising-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save">Submit</button>
+        <button class='btn btn-primary save' type="submit button" >Submit</button>
+        <a href={% url 'home' %} class='btn btn-primary' type='button'>Cancel</a>
     </form>
 {% endblock %}

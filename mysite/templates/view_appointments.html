@@ -17,8 +17,11 @@
              </tr>
         {% endfor %}
         </table>
+    {% else %}
+        <div class='alert alert-secondary' role='alert'>You have no scheduled appointments</div>
     {% endif %}
-        <button><a href={% url 'home' %}>Back</a></button>
+        <a href={% url 'request_appointment' %} class='btn btn-primary' role='button'>Request Appointment</a>
+        <a href={% url 'home' %} class='btn btn-primary' type='button'>Back</a>
 {% endblock %}
 
 

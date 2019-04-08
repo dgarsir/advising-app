@@ -17,8 +17,10 @@ def send_message(request):
 	return render(request, 'send_message.html', {'form': form})
 
 def view_inbox(request):
+	num_messages = len(Message.objects.filter(receiver = request.user.EMPLID))
 	context = {
-		'messages' : Message.objects.all()
+		'messages' : Message.objects.all(),
+		'num_messages' : num_messages,
 	}
 	return render(request, 'views_messages.html', context)
 
