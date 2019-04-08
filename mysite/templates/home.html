@@ -37,6 +37,9 @@
   <a href={% url 'view_appointments' %}>
     <button>My Appointments</button>
   </a>
+    <a href={% url 'view_courses' %}>
+    <button>View Courses</button>
+  </a>
 {% else %}
   <form method="POST" id="aa_form">{% csrf_token %}
     <select id='form_select' name='selected_form'>
@@ -51,6 +54,12 @@
 {% if user.user_type == 2 %}
   <a href={% url 'courses_add' %}>
     <button>Add Course</button>
+  </a>
+  <a href={% url 'del_course' %}>
+    <button>Delete Course</button>
+  </a> 
+  <a href={% url 'view_courses' %}>
+    <button>View Courses</button>
   </a>
   <a href={% url 'add_appointments' %}>
     <button>Add Appointment</button>
