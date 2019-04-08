@@ -5,18 +5,19 @@
 {% if messages %}
     {% for message in messages %}
         {% if message.receiver == request.user.EMPLID %}
-            <ul>
-                <li>Time Received: {{ message.timestamp }}</li>
-                <li>Sender: {{ message.sender }}</li>
-                <li>Subject: {{ message.subject }}</li>
-                <li>Content: {{ message.content }}</li>
-            </ul>
+        <div class='card'>
+                <h5 class='card-title'>Subject: {{ message.subject }}</h5>
+                <p class='card-text'>Time Received: {{ message.timestamp }}, From: {{ message.sender }}</p>
+                <p class='card-body'>{{ message.content }}</p>
+        </div>
         {% endif %}
     {% endfor %}
 {% else %}
     <p>No messages.</p>
 {% endif %}
+    <div class='container'>
     <a href = {% url 'send_message' %} class='btn btn-primary' role='button'>Send</a>
     <a href = {% url 'delete_message' %} class='btn btn-primary' role='button'>Delete</a>
     <a href = {% url 'home' %} class='btn btn-primary' role='button' = none>Back</a>
+    </div>
 {% endblock content %}

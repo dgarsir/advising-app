@@ -3,93 +3,127 @@
 {% block title %}Home{% endblock %}
 
 {% block content %}
-<div class='container-fluid'>
-<div class='container-fluid'>
-  <h1>QuickReg</h1>
-  {% if user.is_authenticated %}
-  <p>Hi {{ user.username }}!</p>
-</div>
-{% if user.user_type == 0 %}
-<div class='container-fluid'>
-  <div class='col'>
-    <div class='row'>
-      Your advising status is: 
-        <div class='alert alert-primary' role='alert'>{{ adv_message }}</div>
-    </div>
-      {% if user.was_denied == True %}
-    <div class='row'>
-      <div class='alert alert-danger' role='alert'>
-        Your advising form was rejected, please resubmit!
-      </div>
-    </div>
-      {% endif %}
 
-      {% elif user.user_type == 1 %}
-        Awaiting Advisement:
-      {% endif %}
-  </div>
-</div>
-<div class='container-fluid'>
-{% if user.user_type == 0 %}
-  <div class='row'>
-    <div class='col'>
-    {% if adv_status == 0 %}
-      <a href= {% url 'submit_advising' %} class='btn btn-primary' role='button'>Submit Advising Form</a> 
+<div class='container'>
+    <div class='container'>
+        <h1>QuickReg</h1>
+        {% if user.is_authenticated %}
+        <p>Hi {{ user.username }}!</p>
+    </div>
+    <!--Student View-->
+    {% if user.user_type == 0 %}
+        <div class='container'>
+            <div class='col'>
+                <div class='row'>
+                    Your advising status is: 
+                    <div class='alert alert-primary' role='alert'>{{ adv_message }}</div>
+                </div>
+                {% if user.was_denied == True %}
+                <div class='row'>
+                    <div class='alert alert-danger' role='alert'>
+                        Your advising form was rejected, please resubmit!
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class='container'>
+            <div class='row'>
+                <div class='col'>
+                    {% if adv_status == 0 %}
+                    <a href= {% url 'submit_advising' %} class='btn btn-primary' role='button'>Submit Advising Form</a> 
+                    {% else %}
+                    <a href = {% url 'view_advising' %} class='btn btn-primary' role='button'>View Advising Form</a>
+                    {% endif %}
+                </div>
+                <div class='col'>
+                    <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
+                </div>
+                <div class='col' id='courses'>
+                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
+                </div>
+                <div class='col'>
+                    <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
+                        <span class="badge badge-light">{{ num_messages }}</span>
+                    </a>
+                </div>
+                <div class='col'>
+                    <a href="{% url 'logout' %}" class='btn btn-primary' role='button'>Log Out</a>
+                </div>
+            </div>
+        </div>
+    {% elif user.user_type == 1 %}
+        <div class='container'>
+            <div class='row'>
+                {% if to_be_advised %}
+                <div class='col'>
+                    <form method="POST" id="aa_form">{% csrf_token %}
+                        <div class='form-group'>
+                            <select id='form_select' name='selected_form'>
+                                <option value="" selected disabled hidden>-----</option>
+                                {% for element in to_be_advised %}
+                                <option value={{ element.id }}>{{ element.author }}</option>
+                                {% endfor %}
+                            </select>
+                            <button class='btn btn-primary' type='Submit button'>View Advising Form<button>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}        
+                <div class='col' id='courses'>
+                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
+                </div>
+                <div class='col'>
+                    <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
+                        <span class="badge badge-light">{{ num_messages }}</span>
+                    </a>
+                </div>
+                <div class='col'>
+                    <a href="{% url 'logout' %}" class='btn btn-primary' role='button'>Log Out</a>
+                </div>
+            </div>
+        </div>
+    {% elif user.user_type == 2 %}
+        <div class='container'>
+            <div class='row'>
+                {% if to_be_advised %}
+                <div class='col'>
+                    <form method="POST" id="aa_form">{% csrf_token %}
+                        <div class='form-group'>
+                            <select id='form_select' name='selected_form'>
+                                <option value="" selected disabled hidden>-----</option>
+                                {% for element in to_be_advised %}
+                                <option value={{ element.id }}>{{ element.author }}</option>
+                                {% endfor %}
+                            </select>
+                            <button class='btn btn-primary' type='Submit button'>View Advising Form<button>
+                        </div>
+                    </form>
+                </div>  
+                {% endif %}      
+                <div class='col' id='courses'>
+                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>Courses</a>
+                </div>
+                <div class='col'>
+                    <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>Appointments</a>
+                </div>
+                <div class='col'>
+                    <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
+                        <span class="badge badge-light">{{ num_messages }}</span>
+                    </a>
+                </div>
+                <div class='col'>
+                    <a href="{% url 'logout' %}" class='btn btn-primary' role='button'>Log Out</a>
+                </div>
+            </div>
+        </div>
+    {% endif %}
     {% else %}
-      <a href = {% url 'view_advising' %} class='btn btn-primary' role='button'>View Advising Form</a>
-    </div>
-  {% endif %}
-    <div class='col'>
-      <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
-    </div>
-    <div class='col' id='courses'>
-      <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
-    </div>
-{% else %}
-    <div class='col'>
-      <form method="POST" id="aa_form">{% csrf_token %}
-        <select id='form_select' name='selected_form'>
-          <option value="" selected disabled hidden>-----</option>
-          {% for element in to_be_advised %}
-          <option value={{ element.id }}>{{ element.author }}</option>
-          {% endfor %}
-        </select>
-        <button type='button Submit' class='btn btn-primary'>View Advising Form<button>
-      </form>
-    </div>
-{% endif %}
-{% if user.user_type == 2 %}
-    <div class='col'>
-      <div class='navigation' id='courses'>
-        <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
-      </div>
-    </div>
-    <div class='col'>
-      <div class='navigation' id='appointments-c'>
-        <a href={% url 'add_appointments' %} class='btn btn-primary' role='button'>Add Appointment</a>
-        <a href={% url 'delete_appointment'%} class='btn btn-primary' role='button'>Delete Appointment</a>
-        <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
-      </div>
-    </div>
-{% endif %}
-    <div class='col'>
-      <div class='navigation' id='messaging'>
-        <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
-          <span class="badge badge-light">{{ num_messages }}</span>
-        </a>
-      </div>
-    </div>
-    <div class='col'>
-      <div class='navigation' id='authorization'>
-        <a href="{% url 'logout' %}" class='btn btn-primary' role='button'>Log Out</a>
-{% else %}
-        <p>You are not logged in</p>
-        <a href="{% url 'login' %}" class='btn btn-primary' role='button'>Login</a>
-        <a href="{% url 'signup' %}" class='btn btn-primary' role='button'>Sign Up</a>
-      </div>
-    </div>
-  </div>
+        <div class='container'>
+            <p>You are not logged in</p>
+            <a href="{% url 'login' %}" class='btn btn-primary' role='button'>Login</a>
+            <a href="{% url 'signup' %}" class='btn btn-primary' role='button'>Sign Up</a>
+        </div>
+        {% endif %}
 </div>
-</div>
-{% endif %}
 {% endblock %}
