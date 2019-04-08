@@ -5,11 +5,13 @@
 {% block content %}
 
 <div class='container'>
+
     <div class='container'>
         <h1>QuickReg</h1>
         {% if user.is_authenticated %}
         <p>Hi {{ user.username }}!</p>
     </div>
+
     <!--Student View-->
     {% if user.user_type == 0 %}
         <div class='container'>
@@ -52,6 +54,9 @@
                 </div>
             </div>
         </div>
+    <!--end student view-->
+
+    <!--teacher view-->
     {% elif user.user_type == 1 %}
         <div class='container'>
             <div class='row'>
@@ -83,6 +88,9 @@
                 </div>
             </div>
         </div>
+    <!--end teacher view-->
+
+    <!--Crystal view-->
     {% elif user.user_type == 2 %}
         <div class='container'>
             <div class='row'>
@@ -118,6 +126,8 @@
             </div>
         </div>
     {% endif %}
+    <!--end Crystal view-->
+
     {% else %}
         <div class='container'>
             <p>You are not logged in</p>
