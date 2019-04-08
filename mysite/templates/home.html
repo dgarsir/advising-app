@@ -31,8 +31,11 @@
     <button>View Advising Form</button>
   </a>
   {% endif %}
-  <a>
+  <a href={% url 'request_appointment' %}>
     <button>Request Appointment</button>
+  </a>
+  <a href={% url 'view_appointments' %}>
+    <button>My Appointments</button>
   </a>
 {% else %}
   <form method="POST" id="aa_form">{% csrf_token %}
@@ -44,16 +47,19 @@
     </select>
       <button type="Submit">View Advising Form<button>
   </form>
-  <a href={% url 'add_appointments' %}>
-    <button>Add Appointment</button>
-  </a>
-  <a>
-    <button>Delete Appointment</button>
-  </a>
 {% endif %}
 {% if user.user_type == 2 %}
   <a href={% url 'courses_add' %}>
     <button>Add Course</button>
+  </a>
+  <a href={% url 'add_appointments' %}>
+    <button>Add Appointment</button>
+  </a>
+  <a href={% url 'delete_appointment'%}>
+    <button>Delete Appointment</button>
+  </a>
+  <a href={% url 'view_appointments' %}>
+    <button>My Appointments</button>
   </a>
 {% endif %}
   <a href = {% url 'send_message' %} decoration='none'>

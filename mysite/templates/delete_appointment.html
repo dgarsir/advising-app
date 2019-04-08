@@ -1,0 +1,18 @@
+{% block content %}
+<h1>Delete Appointment</h1>
+  <a href = {% url 'view_appointments' %} decoration='none'>
+    <button>View Appointments</button>
+  </a>
+   <a href = {% url 'home' %} decoration='none'>
+    <button>Home</button>
+  </a>
+<form method="POST" id="to_delete">{% csrf_token %}
+  <select id='to_delete' name='to_delete'>
+      <option value="" selected disabled hidden>-----</option>
+        {% for x in apt %}
+          <option value={{ x.id }}>{{ x.date }} {{ x.start_time }}-{{ x.end_time }}</option>
+        {% endfor %}
+    </select>
+    <button type="Submit">Delete</button>
+</form>
+{% endblock %}

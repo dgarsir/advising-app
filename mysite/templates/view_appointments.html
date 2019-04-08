@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}View Appointments{% endblock %}
+{% block content %}
+    {% if appts %}
+        <table border="1" width="100%" align="middle" align="center" cellpadding="0.5" cellspacing="0.5">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Owner</th>
+        </tr>
+        {% for x in appts %}
+             <tr>
+                <td><center>{{x.date}}</center></td>
+                <td><center>{{x.start_time}} - {{x.end_time}}</center></td>
+                <td><center>{{x.owner}}</center></td>
+             </tr>
+        {% endfor %}
+        </table>
+    {% endif %}
+        <button><a href={% url 'home' %}>Back</a></button>
+{% endblock %}
+
+
+
+

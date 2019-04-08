@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Request Appointment</h1>
+  <a href = {% url 'home' %} decoration='none'>
+    <button>Back</button>
+  </a>
+<form method="POST" id="to_request">{% csrf_token %}
+  <!--{{form.as_p}}-->
+	<select id='to_request' name='to_request'>
+    	<option value="" selected disabled hidden>-----</option>
+      	{% for x in req %}
+      		<option value={{ x.id }}>{{ x.date }} {{ x.start_time }}-{{ x.end_time }}</option>
+          {% endfor %}
+    </select>
+    <a href = {% url 'view_appointments' %} decoration='none'>
+   	<button type="Submit" class="save" method="POST">Request</button>
+    </a>
+</form>
+{% endblock %}
