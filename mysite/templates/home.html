@@ -4,6 +4,7 @@
 
 {% block content %}
 <div class='container-fluid'>
+<div class='container-fluid'>
   <h1>QuickReg</h1>
   {% if user.is_authenticated %}
   <p>Hi {{ user.username }}!</p>
@@ -60,8 +61,6 @@
 {% if user.user_type == 2 %}
     <div class='col'>
       <div class='navigation' id='courses'>
-        <a href={% url 'courses_add' %} class='btn btn-primary' role='button'>Add Course</a>
-        <a href={% url 'del_course' %} class='btn btn-primary' role='button'>Delete Course</a>
         <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
       </div>
     </div>
@@ -90,6 +89,7 @@
       </div>
     </div>
   </div>
+</div>
 </div>
 {% endif %}
 {% endblock %}

@@ -3,7 +3,7 @@
 <div class='container-fluid'>
   <h1>Courses</h1>
   {% if object_list %}
-  <table>
+  <table class='table'>
     <tr>
       <th>Course</th>
       <th>Teacher</th>
@@ -22,6 +22,8 @@
   {% else %}
   <div class='alert alert-primary' role='alert'>No Courses</div>
   {% endif %}
+  <a href={% url 'courses_add'%} class='btn btn-primary'>Add Course</a>
+  <a href={% url 'del_course'%} class='btn btn-primary'>Delete Course</a>
   <a href={% url 'home' %} class='btn btn-primary'>Back</a>
 </div>
 {% endblock %}
