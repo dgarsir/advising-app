@@ -4,13 +4,13 @@
 
 ## Setup
 
-1. Move to mysite directory
+1. Move to quickreg directory
 ```
 $ cd mysite
 ```
 2. Create virtual environment (only required on initial setup)
 ```
-$ python3 -m venv ~/.virtualenvs/mysite
+$ python3 -m venv ~/.virtualenvs/quickreg
 ```
 3. Activate virtual environment
 ```
