@@ -26,11 +26,11 @@ def Home(request):
             adv_message = ''
 
             if adv_status == 0:
-                adv_message = "Unadvised"
+                adv_message = "You have not been advised.  Please submit an advisement form."
             if adv_status == 1:
-                adv_message = "Advisement pending."
+                adv_message = "Advisement form submitted, awaiting approval."
             if adv_status == 2:
-                adv_message = "Advisement pending final approval."
+                adv_message = "Advisement form submitted, awaiting final approval."
             if adv_status == 3:
                 adv_message = "Advised.  Thank you for using QuickReg."
             return render(request, 'home.html', {
