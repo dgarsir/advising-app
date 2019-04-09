@@ -2,7 +2,7 @@
 
 ### John Chen, Moiya Josephs, Anjana Rajan, Carlton Welch
 
-## Setup and Use
+## Setup
 
 1. Move to mysite directory
 ```
@@ -24,5 +24,4 @@ $ pip install Django
 ```
 $ python3 manage.py runserver
 ```
-6. Open browser (optimized for Chrome and Safari) and navigate to server location (http://localhost:8000/)
-
+6. Open browser (optimized for Firefox) and navigate to server location (http://localhost:8000/)
