@@ -25,7 +25,7 @@
   {% endif %}
   {% if user.user_type == 2 %}
   <a href={% url 'courses_add'%} class='btn btn-primary'>Add Course</a>
-  {% if obj %}
+  {% if object_list %}
   <a href={% url 'del_course'%} class='btn btn-primary'>Delete Course</a>
   {% else %}
   <a href='#' class='btn btn-primary disabled'>Delete Course</a>
