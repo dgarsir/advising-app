@@ -26,6 +26,18 @@ def submit_advising(request):
         form = SubmitAdvisingForm()
     return render(request, 'submit_advising.html', {'form': form})
 
+def select_advising(request):
+    if (request.user.user_type == 1):
+        to_be_advised = Advising.objects.filter(total_credits__gte=45).filter(status = 1)
+    else:
+        to_be_advised = Advising.objects.filter(status = 2)
+    if request.method=="POST":
+        request.session['selected_id'] = request.POST.get('selected_form')
+        #for some reason redirect works and render doesn't?
+        #idk don't change it
+        return redirect('view_advising_faculty')
+    return render(request, 'select_advising.html', {'to_be_advised' : to_be_advised})
+
 def view_advising_faculty(request):
 
     a_form = Advising.objects.get(pk = request.session['selected_id'])

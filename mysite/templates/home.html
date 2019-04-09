@@ -33,16 +33,16 @@
             <div class='row'>
                 <div class='col'>
                     {% if adv_status == 0 %}
-                    <a href= {% url 'submit_advising' %} class='btn btn-primary' role='button'>Submit Advising Form</a> 
+                    <a href= {% url 'submit_advising' %} class='btn btn-primary' role='button'>Advising</a> 
                     {% else %}
-                    <a href = {% url 'view_advising' %} class='btn btn-primary' role='button'>View Advising Form</a>
+                    <a href = {% url 'view_advising' %} class='btn btn-primary' role='button'>Advising</a>
                     {% endif %}
                 </div>
                 <div class='col'>
-                    <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>My Appointments</a>
+                    <a href={% url 'view_appointments' %} class='btn btn-primary' role='button'>Appointments</a>
                 </div>
                 <div class='col' id='courses'>
-                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
+                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>Courses</a>
                 </div>
                 <div class='col'>
                     <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
@@ -60,23 +60,13 @@
     {% elif user.user_type == 1 %}
         <div class='container'>
             <div class='row'>
-                {% if to_be_advised %}
                 <div class='col'>
-                    <form method="POST" id="aa_form">{% csrf_token %}
-                        <div class='form-group'>
-                            <select id='form_select' name='selected_form'>
-                                <option value="" selected disabled hidden>-----</option>
-                                {% for element in to_be_advised %}
-                                <option value={{ element.id }}>{{ element.author }}</option>
-                                {% endfor %}
-                            </select>
-                            <button class='btn btn-primary' type='Submit button'>View Advising Form<button>
-                        </div>
-                    </form>
-                </div>
-                {% endif %}        
+                    <a href={% url 'select_advising' %} class='btn btn-primary' role='button'>Advising
+                        <span class='badge badge-light'>{{ num_advise }}</span>
+                    </a>
+                </div>    
                 <div class='col' id='courses'>
-                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>View Courses</a>
+                    <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>Courses</a>
                 </div>
                 <div class='col'>
                     <a href = {% url 'view_inbox' %} class='btn btn-primary' role='button'>Inbox
@@ -94,21 +84,11 @@
     {% elif user.user_type == 2 %}
         <div class='container'>
             <div class='row'>
-                {% if to_be_advised %}
                 <div class='col'>
-                    <form method="POST" id="aa_form">{% csrf_token %}
-                        <div class='form-group'>
-                            <select id='form_select' name='selected_form'>
-                                <option value="" selected disabled hidden>-----</option>
-                                {% for element in to_be_advised %}
-                                <option value={{ element.id }}>{{ element.author }}</option>
-                                {% endfor %}
-                            </select>
-                            <button class='btn btn-primary' type='Submit button'>View Advising Form<button>
-                        </div>
-                    </form>
-                </div>  
-                {% endif %}      
+                    <a href={% url 'select_advising' %} class='btn btn-primary' role='button'>Advising
+                        <span class='badge badge-light'>{{ num_advise }}</span>
+                    </a>
+                </div>   
                 <div class='col' id='courses'>
                     <a href={% url 'view_courses' %} class='btn btn-primary' role='button'>Courses</a>
                 </div>
@@ -135,5 +115,6 @@
             <a href="{% url 'signup' %}" class='btn btn-primary' role='button'>Sign Up</a>
         </div>
         {% endif %}
+</div>
 </div>
 {% endblock %}

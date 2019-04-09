@@ -47,6 +47,8 @@ def Home(request):
             else:
                 to_be_advised = Advising.objects.filter(status = 2)
             
+            num_advise = len(to_be_advised)
+
             if request.method=="POST":
                 request.session['selected_id'] = request.POST.get('selected_form')
                 #for some reason redirect works and render doesn't?
@@ -56,6 +58,7 @@ def Home(request):
             return render(request, 'home.html', {
                 'to_be_advised' : to_be_advised,
                 'num_messages' : num_messages,
+                'num_advise' : num_advise,
             })
 
     return render(request, 'home.html')

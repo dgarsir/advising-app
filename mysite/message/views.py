@@ -18,23 +18,23 @@ def send_message(request):
 
 def view_inbox(request):
 	num_messages = len(Message.objects.filter(receiver = request.user.EMPLID))
-	context = {
+	print(num_messages)
+	return render(request, 'view_messages.html', {
 		'messages' : Message.objects.all(),
 		'num_messages' : num_messages,
-	}
-	return render(request, 'views_messages.html', context)
+	})
 
-class InboxListView(ListView):
+'''class InboxListView(ListView):
     model = Message 
     template_name = 'view_messages.html'
     context_object_name = 'messages'
     ordering = ['-timestamp']
-
+'''
 def delete_message(request):
 	inbox = list(Message.objects.filter(receiver = request.user.EMPLID))
 	if request.method == "POST":
 		Message.objects.filter(pk = request.POST.get('to-delete')).delete()
-		print(request.POST.get('to-delete'))
+		return redirect('delete_message')
 	return render(request, 'delete_message.html',{'inbox': inbox})
 
 

@@ -14,7 +14,7 @@ def add_appointment(request):
         if form.is_valid():
             a_form = form.save(commit=False)
             a_form.save()
-            return redirect('home')
+            return redirect('view_appointments')
     else:
         form = AppointmentCreationForm()
     return render(request, 'add_appointment.html', {'form': form})
@@ -32,6 +32,7 @@ def delete_appointment(request):
     apt = list(Appointment.objects.all())
     if request.method == "POST":
         Appointment.objects.filter(pk = request.POST.get('to_delete')).delete()
+        return redirect('delete_appointment')
     return render(request, 'delete_appointment.html',{'apt': apt})
 
 
@@ -43,23 +44,3 @@ def request_appointment(request):
         selected.save()
         return redirect('home')
     return render(request, 'request_appointment.html',{'req': req})
-
-    '''apts=Appointment.objects.all()
-    all_items=List(request.POST)
-    if all_items.is_valid():
-        sel_req=all_items.cleaned_data
-        selected_req=sel_req['to_request']
-        print(selected_req)
-        return render(request, 'view_appointments.html', {'apts':apts})
-    else:
-        print(all_items.errors)
-        return render(request, 'view_appointments.html', {'apts':apts})'''
-    '''if request.method == "POST":
-        apt_form=List(request.POST)
-        if apt_form.is_valid():
-            apt_form.save()
-            all_items=request.POST.get('to_request', True)
-        return render_to_response(request, 'view_appointments.html', {'all_items':all_items})
-    else:
-        all_items=request.POST.get('to_request', True)
-        return render_to_response(request, 'view_appointments.html', {'all_items':all_items})'''
