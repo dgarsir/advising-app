@@ -6,7 +6,7 @@
 
 1. Move to quickreg directory
 ```
-$ cd mysite
+$ cd quickreg
 ```
 2. Create virtual environment (only required on initial setup)
 ```
