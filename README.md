@@ -20,7 +20,7 @@ $ source ~/.virtualenvs/mysite/bin/activate
 ```
 $ pip install Django
 ```
-5. Launch share_n_complain
+5. Launch QuickReg
 ```
 $ python3 manage.py runserver
 ```
