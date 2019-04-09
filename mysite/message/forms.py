@@ -10,3 +10,6 @@ class MessageCreationForm(forms.ModelForm):
 			'subject',
 			'content',
 		)
+		labels = {
+			'receiver' : 'To',
+		}

@@ -15,7 +15,6 @@ def courses_add(request):
     return render(request, 'courses_add.html', {'form': form})
 
 def view_courses(request):
-    print(request.POST)
     queryset=Courses.objects.all()
     context ={
         "object_list": queryset,

@@ -2,7 +2,7 @@
 {% block content %}
 
 {% if to_be_advised %}
-<div class='container'>
+<div class='container rounded' style='background-color: grey'>
     <h1>View Advising Forms</h1>
     <form method="POST">{% csrf_token %}
         <div class='form-group' style='padding: 15px'>
@@ -20,7 +20,7 @@
 {% else %}
 <div class='container'>
     <h1>View Advising Forms</h1>
-    <div class='alert alert-primary'>No advising forms.</div>
+    <div class='alert alert-secondary'>No advising forms.</div>
     <a href={% url 'home' %} class='btn btn-primary' role='button'>Back</a>
 </div>
 {% endif %}

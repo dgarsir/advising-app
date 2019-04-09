@@ -15,7 +15,7 @@
         {% endfor %}
 </div>
 {% else %}
-    <div class='alert alert-primary'>No messages.</div>
+    <div class='alert alert-secondary'>No messages.</div>
 {% endif %}
 <div class='container' style='padding: 15px'>
     <a href = {% url 'send_message' %} class='btn btn-success' role='button'>Send</a>
