@@ -30,4 +30,4 @@ $ python3 manage.py runserver
 
 
 ## Documentation
-![alt text](pics/Login_picture.jpg "Login Page that appears when entering the website.")
+![alt text](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
