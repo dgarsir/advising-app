@@ -20,11 +20,37 @@ $ source ~/.virtualenvs/mysite/bin/activate
 ```
 $ pip install Django
 ```
-5. Launch QuickReg
+5. Make migrations (only required on initial setup)
+```
+$ python3 manage.py makemigrations
+$ python3 manage.py migrate
+```
+6. Launch QuickReg
 ```
 $ python3 manage.py runserver
 ```
-6. Open browser (optimized for Firefox) and navigate to server location (http://localhost:8000/)
+7. Open browser (optimized for Firefox) and navigate to server location (http://localhost:8000/)
+
+## Built-in Users
+
+### 'Crystal'-type Users
+| Username | Password      | EMPLID   |
+|----------|---------------|----------|
+|csawyer   |csawyerpassword| 99999999 |
+
+### Faculty-type Users
+| Username | Password      | EMPLID   |
+|----------|---------------|----------|
+|hsolo     |hsolopassword  | 88888888 |
+|jthutt    |jthuttpassword | 77777777 |
+
+### Student-type Users
+| Username | Password        | EMPLID   |
+|----------|-----------------|----------|
+|lsky      | lskypassword    | 00000001 |
+|lorgana   | lorganapassword | 00000002 |
+|dvader    | dvaderpassword  | 00000003 |
+|okenobi   | okenobipassword | 00000004 |
 
 ## Documentation
 ![Login](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
