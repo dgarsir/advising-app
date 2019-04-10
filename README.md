@@ -52,5 +52,6 @@ Student can submit an advising form. Providing the given information and then su
 Faculty can Add and Delete any courses.
 ![Request Appointments](aa2/pics/faculty_advising.png "Student Request Appointment")
 Faculty can view adivising based on the unique ID from each student.
-![View Submission](aa2/pics/view_sub.png "Student Request Appointment")
+![View Submission](aa2/pics/viewing_sub.png "Student Request Appointment")
+Here the faculty can view the request to be advised in detail and either request or deny it.
 
