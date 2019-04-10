@@ -34,7 +34,7 @@ $ python3 manage.py runserver
 
 ![User Types](aa2/pics/user_types.png "User Types")
 
-New User will enter their user type.
+- New User will enter their user type.
 ### Student
 ![Student Home](aa2/pics/student_home.png "Student Home")
 
@@ -48,11 +48,14 @@ Student can request appointments based on Faculty's given availabilities.
 
 Student can request appointment from the dates available.
 
-![Advising Form](aa2/pics/advising_form.png "Student Advising Form")
+![Advising Form](aa2/pics/advising_form.png "Student Advising Form" style="centerme")
 
 Student can submit an advising form. Providing the given information and then submitting it.
 
-
+img[src$="centerme"] {
+  display:block;
+  margin: 0 auto;
+}
 
 
 
