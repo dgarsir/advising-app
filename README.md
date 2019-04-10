@@ -48,5 +48,7 @@ Student can submit an advising form. Providing the given information and then su
 
 ### Faculty
 
-
+![Request Appointments](aa2/pics/add_courses.png "Student Request Appointment")
+![Request Appointments](aa2/pics/del_courses.png "Student Request Appointment")
+![Request Appointments](aa2/pics/faculty_advising.png "Student Request Appointment")
 
