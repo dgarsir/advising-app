@@ -48,18 +48,12 @@ Student can request appointments based on Faculty's given availabilities.
 
 Student can request appointment from the dates available.
 
-![Advising Form](aa2/pics/advising_form.png "Student Advising Form" style="centerme")
+![Advising Form](aa2/pics/advising_form.png "Student Advising Form")
 
 Student can submit an advising form. Providing the given information and then submitting it.
 
-img[src$="centerme"] {
-  display:block;
-  margin: 0 auto;
-}
 
-
-
-### Faculty
+### Faculty and Crystal User
 
 ![Add/Del Courses](aa2/pics/add_del_courses.png "Student Request Appointment")
 
@@ -74,3 +68,12 @@ Faculty can view adivising based on the unique ID from each student.
 Here the faculty can view the request to be advised in detail and either request or deny it.
 
 ![Appointments](aa2/pics/appointments.png "Appointment")
+
+## General User
+![Inbox Send](aa2/pics/message_example.png "Appointment")
+
+Message can be sent to a unique user based off of their EMPLID.
+
+![Inbox](aa2/pics/inbox_mess.png "Inbox mess")
+
+User can view their inbox and reply by clicking send, or delete the message.
