@@ -24,6 +24,7 @@ class Advising(models.Model):
     major = models.CharField("Major", max_length = 100,choices=majors)
     QPA = models.CharField("QPA", max_length=100)
     GPA = models.CharField("GPA", max_length=100)
+    intended_courses = models.TextField("Intended Courses")
     currently_enrolled = models.TextField("Currently Enrolled")
     completed_courses = models.TextField("Completed Courses")
     total_credits = models.PositiveIntegerField("Total Credits", default = 0)

@@ -14,6 +14,7 @@ class SubmitAdvisingForm(forms.ModelForm):
             'major',
             'QPA',
             'GPA',
+            'intended_courses',
             'currently_enrolled',
             'completed_courses',
             'total_credits'
