@@ -33,7 +33,7 @@ Login Page that appears when entering the website.
 
 ### Student
 ![Sign Up](aa2/pics/sign_up_pg.png "Sign up page that appears when entering the website.")
-![User Types](aa2/pics/user types.png "User Types")
+![User Types](aa2/pics/user_types.png "User Types")
 ![Student Home](aa2/pics/student_home.png "Student Home")
 ![Student_appointments](aa2/pics/student_appointments.png "Student Appointment")
 ![Advising Form](aa2/pics/advising_form.png "Student Advising Form")
