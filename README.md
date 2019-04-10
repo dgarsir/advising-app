@@ -28,4 +28,7 @@ $ python3 manage.py runserver
 
 ## Documentation
 ![Login](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
+
 Login Page that appears when entering the website.
+![Sign Up](aa2/pics/sign_up_pg.png "Sign up page that appears when entering the website.")
+![User Types](aa2/pics/user types.png "Login Page that appears when entering the website.")
