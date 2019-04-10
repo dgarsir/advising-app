@@ -30,5 +30,10 @@ $ python3 manage.py runserver
 ![Login](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
 
 Login Page that appears when entering the website.
+
 ![Sign Up](aa2/pics/sign_up_pg.png "Sign up page that appears when entering the website.")
-![User Types](aa2/pics/user types.png "Login Page that appears when entering the website.")
+![User Types](aa2/pics/user types.png)
+![Student Home](aa2/pics/student_home.png "Login Page that appears when entering the website.")
+![Student_appointments](aa2/pics/student_appointments.png "Login Page that appears when entering the website.")
+![Advising Form](aa2/pics/advising_form.png "Login Page that appears when entering the website.")
+![Request Appointments](aa2/pics/request_appointments.png "Login Page that appears when entering the website.")
