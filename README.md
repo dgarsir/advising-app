@@ -29,17 +29,27 @@ $ python3 manage.py runserver
 ## Documentation
 ![Login](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
 
-Login Page that appears when entering the website.
+- Login Page that appears when entering the website.
 ![Sign Up](aa2/pics/sign_up_pg.png "Sign up page that appears when entering the website.")
+
 ![User Types](aa2/pics/user_types.png "User Types")
+
 New User will enter their user type.
 ### Student
 ![Student Home](aa2/pics/student_home.png "Student Home")
+
+Student homepage, here the user can select to request appointments, view courses, submit advising forms and send messages.
+
 ![Student_appointments](aa2/pics/student_appointments.png "Student Appointment")
-Student can view appointments already scheduled.
+
+Student can request appointments based on Faculty's given availabilities.
+
 ![Request Appointments](aa2/pics/request_appointments.png "Student Request Appointment")
+
 Student can request appointment from the dates available.
+
 ![Advising Form](aa2/pics/advising_form.png "Student Advising Form")
+
 Student can submit an advising form. Providing the given information and then submitting it.
 
 
@@ -49,9 +59,15 @@ Student can submit an advising form. Providing the given information and then su
 ### Faculty
 
 ![Add/Del Courses](aa2/pics/add_del_courses.png "Student Request Appointment")
+
 Faculty can Add and Delete any courses.
+
 ![Requested Advising All](aa2/pics/faculty_advising.png "Student Request Appointment")
+
 Faculty can view adivising based on the unique ID from each student.
+
 ![View Submission](aa2/pics/viewing_sub.png "Student Request Appointment")
+
 Here the faculty can view the request to be advised in detail and either request or deny it.
+
 ![Appointments](aa2/pics/appointments.png "Appointment")
