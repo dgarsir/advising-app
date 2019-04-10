@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load message_extras %}
 {% block content %}
 
 <div class='container'>
@@ -8,7 +9,7 @@
         {% if message.receiver == request.user.EMPLID %}
         <div class='card'>
                 <h5 class='card-title'>Subject: {{ message.subject }}</h5>
-                <p class='card-text'>Time Received: {{ message.timestamp }}, From: {{ message.sender }}</p>
+                <p class='card-text'>Time Received: {{ message.timestamp }}, From: {{ message.sender|EMPLID_to_FnLn }} ({{ message.sender }})</p>
                 <p class='card-body'>{{ message.content }}</p>
         </div>
         {% endif %}

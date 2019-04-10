@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .forms import MessageCreationForm
 from .models import Message
+from users.models import CustomUser
 
 def send_message(request):
 	if request.method == "POST":
@@ -17,9 +18,11 @@ def send_message(request):
 
 def view_inbox(request):
 	num_messages = len(Message.objects.filter(receiver = request.user.EMPLID))
+	user_list = CustomUser.objects.all()
 	return render(request, 'view_messages.html', {
 		'messages' : Message.objects.all(),
 		'num_messages' : num_messages,
+		'user_list' : user_list,
 	})
 
 def delete_message(request):

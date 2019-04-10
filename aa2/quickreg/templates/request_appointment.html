@@ -11,11 +11,12 @@
           {% endfor %}
     </select>
     <a href = {% url 'view_appointments' %} decoration='none'>
-   	<button type="Submit" class="save" method="POST">Request</button>
+   	<button type="Submit" class="btn btn-primary save" method="POST">Request</button>
     </a>
+    <a href = {% url 'home' %} class='btn btn-primary' role='button'>Back</a>
     </form>
     {% else %}
     <div class='alert alert-primary'>No appointments available</div>
-    {% endif %}
     <a href = {% url 'home' %} class='btn btn-primary' role='button'>Back</a>
+    {% endif %}
 {% endblock %}
