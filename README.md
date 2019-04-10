@@ -25,3 +25,5 @@ $ pip install Django
 $ python3 manage.py runserver
 ```
 6. Open browser (optimized for Firefox) and navigate to server location (http://localhost:8000/)
+
+![alt text](Login_picture.jpg "Login Page that appears when entering the website.")
