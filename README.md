@@ -31,9 +31,14 @@ $ python3 manage.py runserver
 
 Login Page that appears when entering the website.
 
+### Student
 ![Sign Up](aa2/pics/sign_up_pg.png "Sign up page that appears when entering the website.")
-![User Types](aa2/pics/user types.png)
-![Student Home](aa2/pics/student_home.png "Login Page that appears when entering the website.")
-![Student_appointments](aa2/pics/student_appointments.png "Login Page that appears when entering the website.")
-![Advising Form](aa2/pics/advising_form.png "Login Page that appears when entering the website.")
-![Request Appointments](aa2/pics/request_appointments.png "Login Page that appears when entering the website.")
+![User Types](aa2/pics/user types.png "User Types")
+![Student Home](aa2/pics/student_home.png "Student Home")
+![Student_appointments](aa2/pics/student_appointments.png "Student Appointment")
+![Advising Form](aa2/pics/advising_form.png "Student Advising Form")
+![Request Appointments](aa2/pics/request_appointments.png "Student Request Appointment")
+
+
+### Faculty
+
