@@ -20,13 +20,21 @@ def add_appointment(request):
     return render(request, 'add_appointment.html', {'form': form})
 
 def view_appointments(request):
-    if (request.user.user_type == 0):
+    '''if (request.user.user_type == 0):
         appts=list(Appointment.objects.filter(owner_EMPLID=request.user.EMPLID))
         return render(request, 'view_appointments.html', {'appts':appts})
     else:
         appts=list(Appointment.objects.all())
         return render(request, 'view_appointments.html', {'appts':appts})
-        
+     ''' 
+    if (request.user.user_type == 0):
+       appoint=Appointment.objects.filter(owner_EMPLID=request.user.EMPLID).order_by('date')
+       appts=list(appoint)
+       return render(request, 'view_appointments.html', {'appts':appts})
+    else:
+       appoint=Appointment.objects.all().order_by('date')
+       appts=list(appoint)
+       return render(request, 'view_appointments.html', {'appts':appts})  
 
 def delete_appointment(request):
     apt = list(Appointment.objects.all())
