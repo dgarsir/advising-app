@@ -2,6 +2,18 @@
 
 ### John Chen, Moiya Josephs, Anjana Rajan, Carlton Welch
 
+## Overview
+
+QuickReg is an application built to ease the advisement process for students _and_ faculty in the CS department at City College.  
+
+Features Include:
+  - Advisement form submission, with form status tracking.
+  - Book an appointment with the head of advisement.
+  - Send messages to faculty and students.
+  - View a list of current course offerings.
+  
+QuickReg was built using Python and Django, and utilizes a sqlite database.
+
 ## Setup
 
 1. Move to quickreg directory
