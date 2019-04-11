@@ -7,6 +7,7 @@
 QuickReg is an application built to ease the advisement process for students _and_ faculty in the CS department at City College.  
 
 Features Include:
+  -
   - Advisement form submission, with form status tracking.
   - Book an appointment with the head of advisement.
   - Send messages to faculty and students.
@@ -63,6 +64,32 @@ $ python3 manage.py runserver
 |lorgana   | lorganapassword | 00000002 |
 |dvader    | dvaderpassword  | 00000003 |
 |okenobi   | okenobipassword | 00000004 |
+
+## Functionality, by User
+
+### Crystal
+
+The 'Crystal' user-type has the ability to:
+  - add, delete, and view available appointment times, 
+  - add, delete, and view courses on the available courses list, 
+  - send, delete, view messages 
+  - approve advising forms for students that have fewer than 45 credits, or provide final approval for students that had      
+                their advising forms approved by other faculty members.
+  
+### Faculty
+
+The 'Faculty' user-type has the ability to:
+  - approve advising forms for students that have greater than 45 credits
+  - send, delete, view messages
+  - view available courses
+  
+### Student
+
+The 'Student' user-type has the ability to:
+  - submit forms for advisement
+  - send, delete, view messages
+  - view available courses
+  - request appointments with the 'Crystal' user based on available slots
 
 ## Documentation
 ![Login](aa2/pics/Login_picture.jpg "Login Page that appears when entering the website.")
